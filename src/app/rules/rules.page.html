@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color= "primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Rules</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title id = "promo" color = "primary">
+    Camer Isfates
+  </ion-title>
+    <div class="bg-img">
+
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="myTask"  placeholder="Enter a new Rule"> </ion-input>
+          <ion-button (click)="add()" shape="round" slot="end">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+
+      <h3>List of rules</h3>
+
+      <ion-card >
+      </ion-card>
+    </div>
+
+
+</ion-content>

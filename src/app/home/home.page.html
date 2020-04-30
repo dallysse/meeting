@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color = "primary">
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title id = "promo" color = "primary">
+    Camer Isfates
+  </ion-title>
+    <div class="bg-img">
+      <h1><b>Today</b></h1>
+      <h5>{{ currentDate }}</h5>
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="myTask"  placeholder="Enter a new Meeting"> </ion-input>
+          <ion-button (click)="add()" shape="round" slot="end">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+    </div>
+  
+  </ion-content>
