@@ -1,12 +1,38 @@
-<ion-header>
-  <ion-toolbar color= "primary">
+<ion-header [translucent]="true">
+  <ion-toolbar  color = "primary">
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>Sanctions</ion-title>
+    <ion-title>Camer Isfates
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-title id = "promo" color = "primary">
+    Sanctions     
+  </ion-title>
+    <div class="bg-img">
+      <ion-card>
+        <ion-item>
+          <ion-input [(ngModel)]="myTask"  placeholder="Ajouter une aide"> </ion-input>
+          <ion-button (click)="add()" shape="round" slot="end">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>  
+          <h1>Liste des differentes sanctions</h1>
+        <div *ngFor="let sanction of sanctions, let i = index">
+            <ion-item>{{sanction.nom}}</ion-item>
+        </div>
+    </ion-card-content>
+      </ion-card>
 
-</ion-content>
+    </div>
+  
+  </ion-content>
+
+
+

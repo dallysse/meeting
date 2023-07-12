@@ -12,14 +12,6 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: 'teams',
-    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
-  },
-  {
-    path: 'money',
-    loadChildren: () => import('./money/money.module').then( m => m.MoneyPageModule)
-  },
-  {
     path: 'projects',
     loadChildren: () => import('./projects/projects.module').then( m => m.ProjectsPageModule)
   },
@@ -30,6 +22,18 @@ const routes: Routes = [
   {
     path: 'rules',
     loadChildren: () => import('./rules/rules.module').then( m => m.RulesPageModule)
+  },
+  {
+    path: 'aides',
+    loadChildren: () => import('./aides/aides.module').then( m => m.AidesPageModule)
+  },
+  {
+    path: 'prets',
+    loadChildren: () => import('./prets/prets.module').then( m => m.PretsPageModule)
+  },
+  {
+    path: 'fond-caisses',
+    loadChildren: () => import('./fond-caisses/fond-caisses.module').then( m => m.FondCaissesPageModule)
   }
 ];
 

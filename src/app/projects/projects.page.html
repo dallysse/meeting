@@ -1,26 +1,20 @@
-<ion-header>
-  <ion-toolbar color= "primary">
-    <ion-buttons slot="start">
-      <ion-menu-button ></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Projects</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar  color = "primary">
+    <ion-title>Camer Isfates</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <ion-title id = "promo" color = "primary">
-    Camer Isfates
+    Projets
   </ion-title>
-    <div class="bg-img">
-
-      <ion-card>
-        <ion-item>
-          <ion-input [(ngModel)]="myTask"  placeholder="Enter a new Project"> </ion-input>
-          <ion-button (click)="add()" shape="round" slot="end">
-            <ion-icon slot="icon-only" name="add"></ion-icon>
-          </ion-button>
-        </ion-item>
+      <ion-card color="medium">
+        <ion-card-content>  
+          <h3>Il est décidé qu'aucun projet n'est prévu pour cette nouvelle séance.</h3>
+        </ion-card-content>
       </ion-card>
-    </div>
+  
+  </ion-content>
 
-</ion-content>
+
+

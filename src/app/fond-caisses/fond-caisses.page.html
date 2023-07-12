@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar  color = "primary">
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Camer Isfates</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-title id = "promo" color = "primary">
+    Etat des caisses 
+  </ion-title>
+    <div class="bg-img">
+      <ion-card>
+        <ion-card-content>  
+          <ion-card-header>
+            <ion-card-subtitle>
+              fond de caisses
+            </ion-card-subtitle>
+          </ion-card-header>
+        <div *ngFor="let fondDeCaisse of fonds, let i = index">
+            <ion-item>
+              <ion-label>{{fondDeCaisse.session}}</ion-label>
+              <ion-label>{{fondDeCaisse.somme}} euro</ion-label>
+            </ion-item>
+        </div>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-card-content>  
+      <ion-card-header>
+        <ion-card-title>
+          Total des caisses
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-subtitle>Total intérêts générés</ion-card-subtitle>
+      <ion-card-subtitle> Dépenses</ion-card-subtitle>
+
+</ion-card-content>
+   </ion-card>
+  </div>
+</ion-content>
+
+
+

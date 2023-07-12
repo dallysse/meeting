@@ -17,12 +17,16 @@ export class AppComponent  {
       url: '/home',
     },
     {
-      title: 'Teams',
-      url: '/teams',
+      title: 'Caisses',
+      url: 'fond-caisses',
     },
     {
-      title: 'Money',
-      url: '/money',
+      title: 'Aides',
+      url: '/aides',
+    },
+    {
+    title: 'Pret',
+    url: '/prets',
     },
     {
       title: 'Sanctions',
