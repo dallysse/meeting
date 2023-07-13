@@ -3,19 +3,17 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>Camer Isfates </ion-title>
+    <ion-title>Liste de membres</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-title id = "promo" color = "primary">
-    Accueil
-  </ion-title>
     <div class="container">
-          <h2>Liste de membres</h2>
-
         <div *ngFor="let reunion of reunions, let i = index">
-            <ion-item>{{i+1}}   {{reunion.prenom}}</ion-item>
+            <ion-item>
+              <ion-badge slot="end">{{i+1}} </ion-badge> 
+              <ion-label>{{reunion.prenom}}</ion-label> 
+            </ion-item>
         </div>
         <ion-card>
           <ion-item>

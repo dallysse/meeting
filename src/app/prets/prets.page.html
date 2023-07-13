@@ -12,7 +12,7 @@
         <ion-list>
           <ion-item *ngFor="let pret of prets, let i = index">
             <ion-label [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'">
-              {{pret.beneficiaire}}             
+              {{pret.beneficiaire}}          
               <p> <ion-icon name="calendar-outline" slot="start"></ion-icon> {{pret.date_pret }} </p>
               <p>Prêt sur {{pret.duree}} mois</p>
               <p><ion-icon name="cash-outline" slot="start"></ion-icon> Montant {{pret.montant | currency: 'EUR'}}</p>              

@@ -13,6 +13,8 @@ export class PretsPage implements OnInit {
   prets: any[] = [];
   total_prets : number;
   interet_generer : number;
+  total_interet_generer : number = 0;  
+  
   ngOnInit() {
     this.getPrets();
   }
@@ -24,9 +26,19 @@ export class PretsPage implements OnInit {
                 this.prets = prets;
                 for(let pret of this.prets){
                   this.total_prets =+pret.montant;
-                  if(pret.duree == 3){
-                    this.interet_generer=+pret.montant*3/100;
+                  if(pret.rembourser==1){
+                    if( pret.duree == 3) {
+                      this.interet_generer=pret.montant*3/100; 
+                      //console.log(this.interet_generer);                      
+                    }
+                    else {
+                      this.interet_generer=pret.montant*6/100;                       
+
+                    }
+                    this.total_interet_generer+=this.interet_generer;
+
                   }
+                  console.log(this.total_interet_generer);
                 }
             });
   }
