@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { ReunionServiceService } from '../reunion-service.service';
 
 
 
@@ -9,19 +10,14 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./aides.page.scss'],
 })
 export class AidesPage implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private reunionService: ReunionServiceService) { }
 
   aides: any[] = [];
+
   ngOnInit() {
-    this.getAides();
+    this.reunionService.getAides().subscribe((aides: any[]) => {
+      this.aides = aides;
+    });
   }
 
-  getAides() {
-        this.http
-            .get<any[]>('http://localhost:8888/ApiReunion/listAides.php')
-            .subscribe((aides: any[]) => {
-                this.aides = aides;
-            });
-  }
-  
 }

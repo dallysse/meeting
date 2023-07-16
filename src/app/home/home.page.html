@@ -9,12 +9,10 @@
 
 <ion-content [fullscreen]="true">
     <div class="container">
-        <div *ngFor="let reunion of reunions, let i = index">
-            <ion-item>
+        <ion-item button *ngFor="let membre of membres, let i = index" routerLink="/detail-membres/{{membre.id}}">
               <ion-badge slot="end">{{i+1}} </ion-badge> 
-              <ion-label>{{reunion.prenom}}</ion-label> 
-            </ion-item>
-        </div>
+              <ion-label>{{membre.prenom}}</ion-label> 
+        </ion-item>
         <ion-card>
           <ion-item>
             <ion-input [(ngModel)]="myTask"  placeholder="Ajouter un Meeting"> </ion-input>

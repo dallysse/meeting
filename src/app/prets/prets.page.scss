@@ -62,7 +62,19 @@
 
   .nonrembourser {
     background-color: rgb(249, 228, 35);
+    position: relative;
+    width: 100%;
+    overflow: hidden; 
   }
   .rembourser {
     background-color: rgb(110, 220, 110);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  ion-item {
+    --highlight-height: 2px;
+    --highlight-color-focused: #43e7f3;
+    --highlight-color-valid: #6f58d8;
+    --highlight-color-invalid: #ff46be;
   }

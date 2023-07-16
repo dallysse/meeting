@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'fond-caisses',
     loadChildren: () => import('./fond-caisses/fond-caisses.module').then( m => m.FondCaissesPageModule)
+  },
+  {
+    path: 'detail-membres',
+    loadChildren: () => import('./detail-membres/detail-membres.module').then( m => m.DetailMembresPageModule)
   }
 ];
 

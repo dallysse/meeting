@@ -13,7 +13,7 @@ export class AppComponent  {
   public selectedIndex = 0;
   public appPages = [
     {
-      title: 'Home',
+      title: 'Accueil',
       url: '/home',
     },
     {
@@ -25,7 +25,7 @@ export class AppComponent  {
       url: '/aides',
     },
     {
-    title: 'Pret',
+    title: 'Prêt',
     url: '/prets',
     },
     {
@@ -37,7 +37,7 @@ export class AppComponent  {
       url: '/projects',
     },
     {
-      title: 'Rules',
+      title: 'Règles',
       url: '/rules',
     }
   ];

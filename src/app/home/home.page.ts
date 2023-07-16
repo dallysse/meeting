@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { ReunionServiceService } from '../reunion-service.service';
 
 
 @Component({
@@ -10,19 +10,13 @@ import {HttpClient} from '@angular/common/http';
 
 export class HomePage implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  membres: any[] = [];
 
-  reunions: any[] = [];
+  constructor(private reunionService: ReunionServiceService) { }
+
   ngOnInit() {
-    this.getReunions();
+    this.reunionService.getMembres().subscribe((membres: any[]) => {
+      this.membres = membres;
+    });
   }
-
-  getReunions() {
-        this.http
-            .get<any[]>('http://localhost:8888/ApiReunion/listMembres.php')
-            .subscribe((reunions: any[]) => {
-                this.reunions = reunions;
-            });
-  }
-
 }

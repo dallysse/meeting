@@ -9,11 +9,11 @@
 
 <ion-content [fullscreen]="true">
   <div class="container">
-        <ion-list>
-          <ion-item *ngFor="let pret of prets, let i = index">
-            <ion-label [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'">
+        <ion-list   lines="full">
+          <ion-item  *ngFor="let pret of prets, let i = index" [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'" color="red ">
+            <ion-label>
               {{pret.beneficiaire}}          
-              <p> <ion-icon name="calendar-outline" slot="start"></ion-icon> {{pret.date_pret }} </p>
+              <p> <ion-icon name="calendar-outline" slot="start"></ion-icon> {{pret.date_pret | date }} </p>
               <p>Prêt sur {{pret.duree}} mois</p>
               <p><ion-icon name="cash-outline" slot="start"></ion-icon> Montant {{pret.montant | currency: 'EUR'}}</p>              
               <p><span *ngIf="pret.duree==3"> <ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt <strong>{{pret.montant*3/100 | currency: 'EUR'}}</strong></span></p>

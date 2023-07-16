@@ -13,7 +13,9 @@
       <ion-card>
         <ion-card-content>  
           <div *ngFor="let sanction of sanctions, let i = index">
-              <ion-item>{{sanction.nom}}</ion-item>
+              <ion-item><label>{{sanction.motif}}
+                <p>{{sanction.montant}}</p>
+              </label></ion-item>
           </div>
         </ion-card-content>
       </ion-card>

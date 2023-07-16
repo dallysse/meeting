@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { ReunionServiceService } from '../reunion-service.service';
 
 @Component({
   selector: 'app-sanctions',
@@ -7,18 +8,15 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./sanctions.page.scss'],
 })
 export class SanctionsPage implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private reunionService: ReunionServiceService) { }
 
   sanctions: any[] = [];
   ngOnInit() {
-    this.getSanctions();
-  }
-
-  getSanctions() {
-        this.http
-            .get<any[]>('http://localhost:8888/ApiReunion/listSanctions.php')
-            .subscribe((sanctions: any[]) => {
-                this.sanctions = sanctions;
-            });
+    this.reunionService.getSanctions().subscribe((sanctions: any[]) => {
+      this.sanctions = sanctions;
+    });
   }
 }
+
+
+
