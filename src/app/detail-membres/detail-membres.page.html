@@ -1,13 +1,17 @@
-
 <ion-header [translucent]="true">
-  <ion-toolbar  color = "primary">
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-menu-button ></ion-menu-button>
+      <ion-back-button defaultHref="/membres"></ion-back-button>
     </ion-buttons>
-    <ion-title>Détails sur  membres</ion-title>
+    <ion-title>{{membre.prenom}} {{membre.nom}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>
+      <p>Née le {{membre.date_naissance| date}}</p>
+      <p>A étudié {{membre.formation}} </p>
+    </ion-label>
+  </ion-item>
 </ion-content>

@@ -25,10 +25,23 @@ export class ReunionServiceService {
 
   constructor(private http: HttpClient) { }
 
-
-  getMembres() {
+  listReunions() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listMembres.php');
+      .get<any[]>('http://127.0.0.1:8000/api/reunions');
+  }
+
+  getReunion(id) {
+    return this.http
+      .get<any[]>('http://127.0.0.1:8000/api/reunion/'+id);
+  }
+  listMembres() {
+    return this.http
+      .get<any[]>('http://127.0.0.1:8000/api/membres');
+  }
+
+  getMembre(id) {
+    return this.http
+      .get<any[]>('http://127.0.0.1:8000/api/membre/'+id);
   }
 
   getPrets() {

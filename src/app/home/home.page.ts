@@ -10,13 +10,13 @@ import { ReunionServiceService } from '../reunion-service.service';
 
 export class HomePage implements OnInit {
 
-  membres: any[] = [];
+  reunions: any[] = [];
 
   constructor(private reunionService: ReunionServiceService) { }
 
   ngOnInit() {
-    this.reunionService.getMembres().subscribe((membres: any[]) => {
-      this.membres = membres;
+    this.reunionService.listReunions().subscribe((reunions: any[]) => {
+      this.reunions = reunions.data;
     });
   }
 }

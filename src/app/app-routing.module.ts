@@ -38,6 +38,14 @@ const routes: Routes = [
   {
     path: 'detail-membres',
     loadChildren: () => import('./detail-membres/detail-membres.module').then( m => m.DetailMembresPageModule)
+  },
+  {
+    path: 'membres',
+    loadChildren: () => import('./membres/membres.module').then( m => m.MembresPageModule)
+  },
+  {
+    path: 'details-assise',
+    loadChildren: () => import('./details-assise/details-assise.module').then( m => m.DetailsAssisePageModule)
   }
 ];
 

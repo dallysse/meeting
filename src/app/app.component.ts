@@ -17,8 +17,8 @@ export class AppComponent  {
       url: '/home',
     },
     {
-      title: 'Caisses',
-      url: 'fond-caisses',
+      title: 'Membres',
+      url: '/membres',
     },
     {
       title: 'Aides',
@@ -27,6 +27,10 @@ export class AppComponent  {
     {
     title: 'Prêt',
     url: '/prets',
+    },
+    {
+      title: 'Caisses',
+      url: 'fond-caisses',
     },
     {
       title: 'Sanctions',

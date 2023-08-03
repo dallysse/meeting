@@ -1,24 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute } from '@angular/router';
 import { ReunionServiceService } from '../reunion-service.service';
 
-
 @Component({
-  selector: 'app-detail-membres',
-  templateUrl: './detail-membres.page.html',
-  styleUrls: ['./detail-membres.page.scss'],
+  selector: 'app-details-assise',
+  templateUrl: './details-assise.page.html',
+  styleUrls: ['./details-assise.page.scss'],
 })
-export class DetailMembresPage implements OnInit {
+export class DetailsAssisePage implements OnInit {
 
   constructor(private route: ActivatedRoute, private reunionService: ReunionServiceService) { }
 
-  membre: any[] = [];
+  reunion: any[] = [];
 
   ngOnInit() {
     const id=this.route.snapshot.paramMap.get('id');
-    this.reunionService.getMembre(id).subscribe((membre: any[]) => {
-      this.membre = membre.data[0];
-      console.log(this.membre)
+    this.reunionService.getReunion(id).subscribe((reunion: any[]) => {
+      this.reunion = reunion.data[0];
     });
   }
 
