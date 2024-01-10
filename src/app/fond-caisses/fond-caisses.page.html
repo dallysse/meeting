@@ -3,7 +3,8 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>Etat des caisses  {{getSommeTotal() | currency: 'EUR' }}</ion-title>
+    <ion-title>Etat des caisses<ion-label><p>{{getSommeTotal() | currency: 'EUR' }}</p></ion-label> </ion-title>
+    
   </ion-toolbar>
 </ion-header>
 

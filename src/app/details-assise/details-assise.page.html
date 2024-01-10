@@ -4,19 +4,27 @@
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>
-      <p>Compte rendu de<br />la rencontre du {{reunion.date | date}}</p>
+      <p>Compte rendu de<br />la rencontre du 
+      <br>{{reunion.date | date}}</p>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header lines="full">
-      <ion-label >Liste de membres presents</ion-label>
-    </ion-list-header>
-    <ion-item *ngFor="let present of presents, let i = index">
-      <ion-badge slot="end">{{i+1}} </ion-badge>
-      <ion-label>{{present}} </ion-label>
-    </ion-item>
+    <div *ngIf="presents.length === 0">
+      <ion-list-header lines="full">
+        <ion-label>Pas de reception</ion-label>
+      </ion-list-header>
+    </div>
+    <div *ngIf="presents.length > 0">
+      <ion-list-header lines="full">
+        <ion-label>Membres presents</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let present of presents, let i = index">
+        <ion-badge slot="end">{{i+1}} </ion-badge>
+        <ion-label>{{present}} </ion-label>
+      </ion-item>
+    </div>
   </ion-list>
 </ion-content>

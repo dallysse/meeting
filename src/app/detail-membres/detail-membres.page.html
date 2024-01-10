@@ -3,37 +3,56 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/membres"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{membre.prenom}} {{membre.nom}}</ion-title>
+    <ion-title>
+      {{membre.prenom}} {{membre.nom}}
+      <ion-label
+        ><p>Née le {{membre.date_naissance| date}}</p>
+        <p>A étudié {{membre.formation}}</p></ion-label
+      >
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-
+  <div *ngIf="prets.length === 0">
+    <ion-list-header lines="full">
+      <ion-label>Pas de prêts contracter</ion-label>
+    </ion-list-header>
+  </div>
+  <div *ngIf="prets.length > 0">
+    <ion-list-header lines="full">
+      <ion-label>Liste de prêts</ion-label>
+    </ion-list-header>
+    <ion-list
+      *ngFor="let pret of prets, let i = index"
+      [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'"
+      color="red "
+    >
       <ion-item>
         <ion-label>
-          <p>Née le {{membre.date_naissance| date}}</p>
-          <p>A étudié {{membre.formation}} </p>
+          <p>
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            {{pret.date | date }}
+          </p>
+          <p>Prêt sur {{pret.duree}} mois</p>
+          <p>
+            <ion-icon name="cash-outline" slot="start"></ion-icon> Montant
+            {{pret.montant | currency: 'EUR'}}
+          </p>
+          <p>
+            <span *ngIf="pret.duree==3">
+              <ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
+              <strong>{{pret.montant*3/100 | currency: 'EUR'}}</strong></span
+            >
+          </p>
+          <p>
+            <span *ngIf="pret.duree==6"
+              ><ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
+              {{pret.montant*6/100 | currency: 'EUR'}}</span
+            >
+          </p>
         </ion-label>
       </ion-item>
-    </ion-card-content>
-  </ion-card>
-
-      <ion-list *ngFor="let pret of prets, let i = index"
-        [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'" color="red ">
-
-        <ion-item>
-          <ion-label>
-            <p> <ion-icon name="calendar-outline" slot="start"></ion-icon> {{pret.date | date }} </p>
-            <p>Prêt sur {{pret.duree}} mois</p>
-            <p><ion-icon name="cash-outline" slot="start"></ion-icon> Montant {{pret.montant | currency: 'EUR'}}</p>
-            <p><span *ngIf="pret.duree==3"> <ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
-                <strong>{{pret.montant*3/100 | currency: 'EUR'}}</strong></span></p>
-            <p><span *ngIf="pret.duree==6"><ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
-                {{pret.montant*6/100 | currency: 'EUR'}}</span></p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-
+    </ion-list>
+  </div>
 </ion-content>

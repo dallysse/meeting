@@ -27,6 +27,7 @@ export class DetailsAssisePage implements OnInit {
       for (let present of presents.data) {
         if(present.date == this.reunion.date){
           this.presents.push(present.nom) ; 
+          console.log(this.presents.length)
         }
 
       }
