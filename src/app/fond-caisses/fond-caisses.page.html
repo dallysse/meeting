@@ -19,7 +19,7 @@
           <ion-card-content>  
             <ion-item *ngFor="let fondDeCaisse of fonds, let i = index">
               <ion-label>{{fondDeCaisse.session}}</ion-label>
-              <ion-label>{{fondDeCaisse.somme | currency: 'EUR' }} </ion-label>
+              <ion-label>{{fondDeCaisse.montant | currency: 'EUR' }} </ion-label>
             </ion-item>
            </ion-card-content>
       </ion-card>

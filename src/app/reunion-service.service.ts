@@ -34,6 +34,7 @@ export class ReunionServiceService {
     return this.http
       .get<any[]>('http://127.0.0.1:8000/api/reunion/'+id);
   }
+
   listMembres() {
     return this.http
       .get<any[]>('http://127.0.0.1:8000/api/membres');
@@ -44,28 +45,33 @@ export class ReunionServiceService {
       .get<any[]>('http://127.0.0.1:8000/api/membre/'+id);
   }
 
+  listMembresPresent() {
+    return this.http
+      .get<any[]>('http://127.0.0.1:8000/api/presence');
+  }
+
   getPrets() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listPrets.php')
+      .get<any[]>('http://localhost:8000/api/prets')
   }
 
   getSanctions() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listSanctions.php')
+      .get<any[]>('http://localhost:8000/api/sanctions')
   }
 
   getFonds() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listFondCaisse.php')
+      .get<any[]>('http://localhost:8000/api/fondDeCaisses')
   }
 
   getDepenses() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listDepense.php')
+      .get<any[]>('http://localhost:8000/api/depenses')
   }
 
   getAides() {
     return this.http
-      .get<any[]>('http://localhost:8888/ApiReunion/listAides.php')
+      .get<any[]>('http://localhost:8000/api/aides')
   }
 }

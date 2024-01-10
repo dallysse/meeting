@@ -11,11 +11,11 @@ import { ReunionServiceService } from '../reunion-service.service';
 export class AidesPage implements OnInit {
   constructor(private reunionService: ReunionServiceService) { }
 
-  aides: any[] = [];
+  aides: object[] = [];
 
   ngOnInit() {
-    this.reunionService.getAides().subscribe((aides: any[]) => {
-      this.aides = aides;
+    this.reunionService.getAides().subscribe((aides: object[]) => {
+      this.aides = aides.data;
     });
   }
 

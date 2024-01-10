@@ -13,13 +13,28 @@ export class DetailMembresPage implements OnInit {
   constructor(private route: ActivatedRoute, private reunionService: ReunionServiceService) { }
 
   membre: any[] = [];
+  prets: any[] = [];
 
   ngOnInit() {
     const id=this.route.snapshot.paramMap.get('id');
     this.reunionService.getMembre(id).subscribe((membre: any[]) => {
       this.membre = membre.data[0];
-      console.log(this.membre)
+
+      
     });
+
+    this.reunionService.getPrets().subscribe((prets: any[]) => {
+      
+      for(let pret of prets.data){
+        // calcule du total des prets non rembourser
+        if(pret.beneficiaire==this.membre.prenom){
+          this.prets.push(pret);
+          console.log(this.prets )
+        }
+
+      }
+      
+  });
   }
 
 }

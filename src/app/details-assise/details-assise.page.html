@@ -3,15 +3,20 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title> <p>Compte rendu de<br/>la rencontre du {{reunion.date_Reunion | date}}</p> </ion-title>
+    <ion-title>
+      <p>Compte rendu de<br />la rencontre du {{reunion.date | date}}</p>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>
-      <p>Née le </p>
-      <p>A étudié </p>
-    </ion-label>
-  </ion-item>
+  <ion-list>
+    <ion-list-header lines="full">
+      <ion-label >Liste de membres presents</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let present of presents, let i = index">
+      <ion-badge slot="end">{{i+1}} </ion-badge>
+      <ion-label>{{present}} </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

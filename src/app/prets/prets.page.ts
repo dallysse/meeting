@@ -17,7 +17,7 @@ export class PretsPage implements OnInit {
 
   ngOnInit() {
     this.reunionService.getPrets().subscribe((prets: any[]) => {
-      this.prets = prets;
+      this.prets = prets.data;
       for (let pret of this.prets) {
         if (pret.rembourser == 1) {
           if (pret.duree == 3) {

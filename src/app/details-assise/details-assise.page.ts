@@ -12,12 +12,24 @@ export class DetailsAssisePage implements OnInit {
 
   constructor(private route: ActivatedRoute, private reunionService: ReunionServiceService) { }
 
-  reunion: any[] = [];
+  reunion: any[] = []; 
+  presents: string[] = []; 
+
 
   ngOnInit() {
     const id=this.route.snapshot.paramMap.get('id');
     this.reunionService.getReunion(id).subscribe((reunion: any[]) => {
       this.reunion = reunion.data[0];
+
+    });
+
+    this.reunionService.listMembresPresent().subscribe((presents: any[]) => {   
+      for (let present of presents.data) {
+        if(present.date == this.reunion.date){
+          this.presents.push(present.nom) ; 
+        }
+
+      }
     });
   }
 

@@ -41,13 +41,12 @@ export class FondCaissesPage implements OnInit {
 
   getSommeTotal(): number {
     this.total_fonds=this.total_fonds_caisse+this.total_interet_generer+this.total_sanctions-this.total_depenses;
-  
     return this.total_fonds;
   }
 
   getPrets() {
          this.reunionService.getPrets().subscribe((prets: any[]) => {
-                this.prets = prets;
+                this.prets = prets.data;
                 for(let pret of this.prets){
                   // calcule du total des prets non rembourser
                   if(pret.rembourser==0){
@@ -71,25 +70,24 @@ export class FondCaissesPage implements OnInit {
 
   getSanctions() {
     this.reunionService.getSanctions().subscribe((sanctions: any[]) => {
-            this.sanctions = sanctions;
+            this.sanctions = sanctions.data;
             for(let sanction of this.sanctions){
               this.total_sanctions+=sanction.montant*1;   
-              console.log(this.total_sanctions)               
             }   
         });
 }
   getFonds() {
         this.reunionService.getFonds().subscribe((fonds: any[]) => {
-                this.fonds = fonds;
+                this.fonds = fonds.data;
                 for(let fond of this.fonds){
-                  this.total_fonds_caisse+=fond.somme*1;                  
+                  this.total_fonds_caisse+=fond.montant*1;                  
                   }               
             });
   }
 
   getDepenses() {
     this.reunionService.getDepenses().subscribe((depenses: any[]) => {
-            this.depenses = depenses;
+            this.depenses = depenses.data;
             for(let depense of this.depenses){
               this.total_depenses+=depense.montant*1;                  
               }               

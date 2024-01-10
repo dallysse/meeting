@@ -13,7 +13,8 @@ export class SanctionsPage implements OnInit {
   sanctions: any[] = [];
   ngOnInit() {
     this.reunionService.getSanctions().subscribe((sanctions: any[]) => {
-      this.sanctions = sanctions;
+      this.sanctions = sanctions.data;
+      console.log(this.sanctions)
     });
   }
 }

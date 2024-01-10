@@ -11,7 +11,7 @@
     <div class="container">
         <ion-item button *ngFor="let reunion of reunions, let i = index" routerLink="/details-assise/{{reunion.id}}">
               <ion-badge slot="end">{{i+1}} </ion-badge> 
-              <ion-label>{{reunion.date_Reunion | date}}</ion-label> 
+              <ion-label>{{reunion.date | date}}</ion-label> 
               <ion-label>{{reunion.receveur}} </ion-label> 
         </ion-item>
         <ion-card>

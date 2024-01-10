@@ -11,7 +11,7 @@
   <div class="container">
       <ion-item *ngFor="let aide of aides, let i = index">
         <ion-label>
-          {{aide.nom_beneficiere}}
+          {{aide.beneficiaire}}
           <p>{{ aide.date_versement | date}}</p>
           <p>{{aide.type_aide}}</p>
         </ion-label>
