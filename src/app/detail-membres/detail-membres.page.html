@@ -55,4 +55,29 @@
       </ion-item>
     </ion-list>
   </div>
+
+  <div *ngIf="aides.length === 0">
+    <ion-list-header lines="full">
+      <ion-label>Aucune aide </ion-label>
+    </ion-list-header>
+  </div>
+  <div *ngIf="aides.length > 0">
+    <ion-list-header lines="full">
+      <ion-label>Liste des aides</ion-label>
+    </ion-list-header>
+    <ion-list
+    *ngFor="let aide of aides, let i = index"
+    [ngClass]="aide.remis == 0 ? 'nonrembourser' : 'rembourser'"
+    color="red "
+    >
+    <ion-item>
+    <ion-label>
+      {{aide.beneficiaire}}
+      <p>{{ aide.date_versement | date}}</p>
+      <p>{{aide.type_aide}}</p>
+    </ion-label>
+  </ion-item>
+
+    </ion-list>
+  </div>
 </ion-content>

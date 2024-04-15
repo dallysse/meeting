@@ -46,6 +46,14 @@ const routes: Routes = [
   {
     path: 'details-assise',
     loadChildren: () => import('./details-assise/details-assise.module').then( m => m.DetailsAssisePageModule)
+  },
+  {
+    path: 'depenses',
+    loadChildren: () => import('./depenses/depenses.module').then( m => m.DepensesPageModule)
+  },
+  {
+    path: 'etat-caisse',
+    loadChildren: () => import('./etat-caisse/etat-caisse.module').then( m => m.EtatCaissePageModule)
   }
 ];
 

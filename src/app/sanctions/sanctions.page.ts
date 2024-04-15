@@ -14,7 +14,6 @@ export class SanctionsPage implements OnInit {
   ngOnInit() {
     this.reunionService.getSanctions().subscribe((sanctions: any[]) => {
       this.sanctions = sanctions.data;
-      console.log(this.sanctions)
     });
   }
 }

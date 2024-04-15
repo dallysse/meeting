@@ -25,16 +25,24 @@ export class AppComponent  {
       url: '/aides',
     },
     {
-    title: 'Prêt',
+    title: 'Prêts',
     url: '/prets',
     },
     {
-      title: 'Caisses',
+      title: 'Depenses',
+      url: 'depenses',
+    },
+    {
+      title: 'Fond de caisses',
       url: 'fond-caisses',
     },
     {
       title: 'Sanctions',
       url: '/sanctions',
+    },
+    {
+      title: 'Etat de caisse',
+      url: 'etat-caisse',
     },
     {
       title: 'Projects',

@@ -74,4 +74,16 @@ export class ReunionServiceService {
     return this.http
       .get<any[]>('http://localhost:8000/api/aides')
   }
+
+  registerAide(formData: object) {
+    return this.http.post('http://localhost:8000/api/aide/create', formData);
+  }
+
+  registerPret(formData: object) {
+    return this.http.post('http://localhost:8000/api/pret/create', formData);
+  }
+
+  registerDepense(formData: object) {
+    return this.http.post('http://localhost:8000/api/depense/create', formData);
+  }
 }

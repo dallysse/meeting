@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>Etat des caisses<ion-label><p>{{getSommeTotal() | currency: 'EUR' }}</p></ion-label> </ion-title>
+    <ion-title>Fonds de caisse<ion-label><p>{{total_fonds_caisse | currency: 'EUR'}}</p></ion-label> </ion-title>
     
   </ion-toolbar>
 </ion-header>
@@ -11,12 +11,6 @@
 <ion-content [fullscreen]="true">
     <div class="bg-img">
       <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              fond de caisses  
-            </ion-card-title>
-            <ion-card-subtitle>{{total_fonds_caisse | currency: 'EUR'}}</ion-card-subtitle>
-          </ion-card-header>
           <ion-card-content>  
             <ion-item *ngFor="let fondDeCaisse of fonds, let i = index">
               <ion-label>{{fondDeCaisse.session}}</ion-label>
@@ -24,55 +18,7 @@
             </ion-item>
            </ion-card-content>
       </ion-card>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>
-            Dépenses
-          </ion-card-title>
-        <ion-card-subtitle>{{total_depenses | currency: 'EUR'}}</ion-card-subtitle>
-        </ion-card-header>
-      <ion-card-content>  
-        <ion-item *ngFor="let depense of depenses, let i = index">
-          <ion-label>
-            {{depense.motif}}
-            <p>{{depense.date | date}}</p>
-            <p>{{depense.montant | currency: 'EUR' }}</p>
-          </ion-label>
-        </ion-item>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>
-          Total intérêts encaiser        
-      </ion-card-title>
-    </ion-card-header>
-    <ion-card-content>  
-      <p> {{total_interet_generer | currency: 'EUR' }}</p>
-    </ion-card-content>
-   </ion-card>
-
-   <ion-card>
-      <ion-card-header>
-        <ion-card-title>
-          Total des emprunts en cours      
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>  
-      <p> {{total_prets_non_rembourser | currency: 'EUR' }}</p>
-    </ion-card-content>
-   </ion-card>
-
-   <ion-card color="success">
-      <ion-card-header>
-        <ion-card-title>
-          Somme à disposition        
-        </ion-card-title>
-      </ion-card-header>
-      <ion-card-content>  
-        <ion-item>{{getSommeDispo() | currency: 'EUR' }} </ion-item>
-      </ion-card-content>
-   </ion-card>
+      
   </div>
 </ion-content>
 

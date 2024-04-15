@@ -9,35 +9,67 @@
 
 <ion-content [fullscreen]="true">
   <div class="container">
-        <ion-list   lines="full">
-          <ion-item  *ngFor="let pret of prets, let i = index" [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'" color="red ">
-            <ion-label>
-              {{pret.beneficiaire}}          
-              <p> <ion-icon name="calendar-outline" slot="start"></ion-icon> {{pret.date | date }} </p>
-              <p>Prêt sur {{pret.duree}} mois</p>
-              <p><ion-icon name="cash-outline" slot="start"></ion-icon> Montant {{pret.montant | currency: 'EUR'}}</p>              
-              <p><span *ngIf="pret.duree==3"> <ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt <strong>{{pret.montant*3/100 | currency: 'EUR'}}</strong></span></p>
-              <p><span *ngIf="pret.duree==6"><ion-icon name="cash-outline" slot="start"></ion-icon>  Intérêt {{pret.montant*6/100 | currency: 'EUR'}}</span></p>
-            </ion-label>
-          </ion-item>
-        </ion-list>  
+    <ion-list lines="full">
+      <ion-item *ngFor="let pret of prets, let i = index"
+        [ngClass]="pret.rembourser == 0 ? 'nonrembourser' : 'rembourser'" color="red ">
+        <ion-label>
+          {{pret.beneficiaire}}
+          <p>
+            <ion-icon name="calendar-outline" slot="start"></ion-icon>
+            {{pret.date | date }}
+          </p>
+          <p>Prêt sur {{pret.duree}} mois</p>
+          <p>
+            <ion-icon name="cash-outline" slot="start"></ion-icon> Montant
+            {{pret.montant | currency: 'EUR'}}
+          </p>
+          <p>
+            <span *ngIf="pret.duree==3">
+              <ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
+              <strong>{{pret.montant*3/100 | currency: 'EUR'}}</strong></span>
+          </p>
+          <p>
+            <span *ngIf="pret.duree==6"><ion-icon name="cash-outline" slot="start"></ion-icon> Intérêt
+              {{pret.montant*6/100 | currency: 'EUR'}}</span>
+          </p>
+        </ion-label>
+        <input type="checkbox" [(ngModel)]="pret.rembourser" />
+      </ion-item>
+    </ion-list>
 
-        <ion-card color="medium">
-          <ion-card-header>
-            <ion-card-subtitle>Intérêts</ion-card-subtitle>
-          </ion-card-header>   
-          <ion-card-content>
-            Le tôt d'intérêt est de 3% pour une durée de 3 mois et 6% pour 6 mois.
-          </ion-card-content>
-        </ion-card>
+    <ion-card color="medium">
+      <ion-card-header>
+        <ion-card-subtitle>Intérêts</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        Le tôt d'intérêt est de 3% pour une durée de 3 mois et 6% pour 6 mois.
+      </ion-card-content>
+    </ion-card>
     <ion-card>
-      <ion-item>
-        <ion-input [(ngModel)]="myTask" placeholder="Ajouter un prêt">
-        </ion-input>
-        <ion-button (click)="add()" shape="round" slot="end">
+      <ion-card-header>
+        <ion-card-subtitle>Ajouter un Pret</ion-card-subtitle>
+      </ion-card-header>
+      <ion-list>
+        <ion-item>
+          <ion-label>beneficiaire</ion-label>
+          <ion-input [(ngModel)]="beneficiaire"> </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Duree</ion-label>
+          <ion-input [(ngModel)]="duree"> </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Montant</ion-label>
+          <ion-input [(ngModel)]="montant"> </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Date</ion-label>
+          <ion-datetime displayFormat="MMM DD, YYYY" [(ngModel)]="dateDepense"></ion-datetime>
+        </ion-item>
+        <ion-button (click)="add()" shape="round" expand="block" fill="solid">
           <ion-icon slot="icon-only" name="add"></ion-icon>
         </ion-button>
-      </ion-item>
+      </ion-list>
     </ion-card>
   </div>
 </ion-content>
